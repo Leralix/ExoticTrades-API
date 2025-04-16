@@ -1,5 +1,4 @@
 import com.vanniktech.maven.publish.SonatypeHost
-
 plugins {
     id 'java'
     id 'java-library'
@@ -7,8 +6,16 @@ plugins {
 }
 
 group = 'io.github.leralix.extrade-api'
-version = '0.2.4'
+version = '0.2.5'
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+
+    if (JavaVersion.current() < JavaVersion.VERSION_17) {
+        toolchain.languageVersion = JavaLanguageVersion.of(17)
+    }
+}
 
 mavenPublishing {
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, true)

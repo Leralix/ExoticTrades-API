@@ -16,4 +16,6 @@ public interface ExTrader {
 
     List<Vector3D> getPotentialPosition();
 
+    int getNbHoursBeforeNextPosition();
+
 }
